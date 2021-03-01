@@ -128,6 +128,6 @@ public class StringHW {
                 break;
             }
         }
-        return str.substring(0, a);
+        return str.substring(0, a); // Hello world
     }
 }
