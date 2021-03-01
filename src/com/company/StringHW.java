@@ -120,11 +120,14 @@ public class StringHW {
         return string;
     }
 
-    public StringBuilder deleteLastWord(String str){
-        StringBuilder words = new StringBuilder(str);
-          words.deleteCharAt(words.length() - 1);
-        return words;
+    public static String deleteLastWord(String str) {
+        int a = str.length();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == ' ') {
+                a = i;
+                break;
+            }
+        }
+        return str.substring(0, a);
     }
 }
-
-
