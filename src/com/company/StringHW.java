@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringHW {
 
     public void string_A_Z (){
@@ -56,5 +59,72 @@ public class StringHW {
         Double d = Double.valueOf(str);
         System.out.println(d);
     }
+
+    public void shortestWord (String str) {
+        String[] words = str.split(" ");
+        int min = words[0].length(); // длинна 1го элемента - 5
+        for (int i = 1; i < words.length; i++) {
+            min = Math.min(words[i].length(), min);
+        }
+        System.out.println(min);
+    }
+
+    public void change_to_$ (String str, int quantity) {
+        String[] words = str.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() == quantity) {
+                String result = words[i].substring(0, words[i].length() - 3);
+                result = result + "$$$";
+                System.out.println(result);
+            }
+        }
+    }
+
+    public String add_space(String value){
+        Pattern pattern = Pattern.compile("[\\pP\\W]");
+        Matcher matcher = pattern.matcher(value);
+        while(matcher.find()) {
+            String w = matcher.group();
+            value = value.replaceAll("\\" + w, w + " ");
+            value = value.replaceAll("\\s+", " ");
+        }
+        return value;
+    }
+
+    public String getUniqueChar(String value){
+        String result = "";
+        for(int i = 0; i < value.length(); i++) {
+            if (result.indexOf(value.charAt(i)) == - 1) {
+                result += value.charAt(i);
+            }
+        }
+        return result;
+    }
+
+    public int amountOfWords(String str){
+        String[] words = str.split(" ");
+        int amount = 0;
+        for (int i = 0; i < words.length; i++) {
+            amount++;
+        }
+        return amount;
+    }
+
+    public String deletePosition(String str, int startIndex, int amountToDelete){
+        return str.replace(str.substring(startIndex, (startIndex + amountToDelete)), "");
+    }
+
+    public StringBuilder reverse(String str){
+        StringBuilder string = new StringBuilder(str);
+        string.reverse();
+        return string;
+    }
+
+    public StringBuilder deleteLastWord(String str){
+        StringBuilder words = new StringBuilder(str);
+          words.deleteCharAt(words.length() - 1);
+        return words;
+    }
 }
+
 
