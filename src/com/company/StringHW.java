@@ -121,10 +121,9 @@ public class StringHW {
         return str.replace(str.substring(startIndex, (startIndex + amountToDelete)), "");
     }
 
-    public static StringBuilder reverse(String str){
+    public static String reverse(String str){
         StringBuilder string = new StringBuilder(str);
-        string.reverse();
-        return string;
+        return string.reverse().toString();
     }
 
     public static String deleteLastWord(String str) {

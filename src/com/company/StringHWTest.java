@@ -109,12 +109,12 @@ public class StringHWTest {
         Assertions.assertEquals(actual, expected);
     }
 
-//    @Test
-//    public void test_reverse(){
-//        StringBuilder actual = StringHW.reverse("qwertyuiop");
-//        String expected = (StringBuilder) "poiuytrewq";
-//        Assertions.assertEquals(actual, expected);
-//    }
+    @Test
+    public void test_reverse(){
+        String actual = StringHW.reverse("qwertyuiop");
+        String expected = "poiuytrewq";
+        Assertions.assertEquals(actual, expected);
+    }
 
     @Test
     public void test_deleteLastWord(){
