@@ -5,93 +5,100 @@ import java.util.regex.Pattern;
 
 public class StringHW {
 
-    public void string_A_Z (){
-        for (int i = 65; i <= 90; i++) {
-            System.out.print((char) i);
-            System.out.print(" ");
+    public static char[] string_A_Z (){
+        char [] alphabet = new char[26];
+        for (int i = 0; i < 26; i++) {
+            alphabet[i] = (char) (65 + i);
         }
+        return alphabet;
     }
 
-    public void string_z_a (){
-        for (int i = 122; i >= 97; i--) {
-            System.out.print((char) i);
-            System.out.print(" ");
+    public static char[] string_z_a (){
+        char [] alphabet = new char[26];
+        for (int i = 25; i >= 0; i--) {
+            alphabet[i] = (char) (122 - i);
         }
+        return alphabet;
     }
 
-    public void string_а_я (){
-        for (int i = 1072; i <= 1103; i++) {
-            System.out.print((char) i);
-            System.out.print(" ");
+    public static char[] string_а_я () {
+        char[] alphabet = new char[32];
+        for (int i = 0; i < 32; i++) {
+            alphabet[i] = (char) (1072 + i);
         }
+        return alphabet;
     }
 
-    public void string_0_9 (){
-        for (int i = 48; i <= 57; i++) {
-            System.out.print((char) i);
-            System.out.print(" ");
+    public static char[] string_0_9 (){
+        char[] numbers = new char[10];
+        for (int i = 0; i <= 9; i++) {
+            numbers[i] = (char) (48 + i);
         }
+        return numbers;
     }
 
-    public void string_printable_char (){
-        for (int i = 32; i <= 126; i++) {
-            System.out.print((char) i);
-            System.out.print(" ");
+    public static char[] string_printable_char (){
+        char[] chars = new char[95];
+        for (int i = 0; i <= 94; i++) {
+            chars[i] = (char) (32 + i);
         }
+        return chars;
     }
 
-    public void integer_to_String(int x){
+    public static String integer_to_String(int x){
         String num = String.valueOf(x);
-        System.out.println(num);
+        return num;
     }
 
-    public void double_to_String(double x){
+    public static String double_to_String(double x){
         String num = String.valueOf(x);
-        System.out.println(num);
+        return num;
     }
 
-    public void string_to_Integer(String str){
+    public static int string_to_Integer(String str){
         Integer i = Integer.parseInt(str);
-        System.out.println(i);
+        return i;
     }
 
-    public void string_to_Double(String str){
+    public static double string_to_Double(String str){
         Double d = Double.valueOf(str);
-        System.out.println(d);
+        return d;
     }
 
-    public void shortestWord (String str) {
+    public static int shortestWord (String str) {
         String[] words = str.split(" ");
         int min = words[0].length(); // длинна 1го элемента - 5
         for (int i = 1; i < words.length; i++) {
             min = Math.min(words[i].length(), min);
         }
-        System.out.println(min);
+        return min;
     }
 
-    public void change_to_$ (String str, int quantity) {
+    public static String change_to_$ (String str, int quantity) {
+        String result = "";
         String[] words = str.split(" ");
         for (int i = 0; i < words.length; i++) {
             if (words[i].length() == quantity) {
-                String result = words[i].substring(0, words[i].length() - 3);
+                result = words[i].substring(0, words[i].length() - 3);
                 result = result + "$$$";
                 System.out.println(result);
             }
         }
+        return result;
     }
 
-    public String add_space(String value){
+    public static String add_space(String str){
         Pattern pattern = Pattern.compile("[\\pP\\W]");
-        Matcher matcher = pattern.matcher(value);
+        Matcher matcher = pattern.matcher(str);
         while(matcher.find()) {
             String w = matcher.group();
-            value = value.replaceAll("\\" + w, w + " ");
-            value = value.replaceAll("\\s+", " ");
+            str = str.replaceAll("\\" + w, w + " ");
+            str = str.replaceAll("\\s+", " ");
         }
-        return value;
+        return str;
     }
 
-    public String getUniqueChar(String value){
+    public static String getUniqueChar(String value){
         String result = "";
         for(int i = 0; i < value.length(); i++) {
             if (result.indexOf(value.charAt(i)) == - 1) {
@@ -101,7 +108,7 @@ public class StringHW {
         return result;
     }
 
-    public int amountOfWords(String str){
+    public static int amountOfWords(String str){
         String[] words = str.split(" ");
         int amount = 0;
         for (int i = 0; i < words.length; i++) {
@@ -110,11 +117,11 @@ public class StringHW {
         return amount;
     }
 
-    public String deletePosition(String str, int startIndex, int amountToDelete){
+    public static String deletePosition(String str, int startIndex, int amountToDelete){
         return str.replace(str.substring(startIndex, (startIndex + amountToDelete)), "");
     }
 
-    public StringBuilder reverse(String str){
+    public static StringBuilder reverse(String str){
         StringBuilder string = new StringBuilder(str);
         string.reverse();
         return string;
@@ -128,6 +135,6 @@ public class StringHW {
                 break;
             }
         }
-        return str.substring(0, a); // Hello world
+        return str.substring(0, a);
     }
 }
