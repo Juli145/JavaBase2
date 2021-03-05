@@ -47,13 +47,14 @@ public class SimpleCalc {
     public void constructWindow(){
         JFrame.setDefaultLookAndFeelDecorated(true);
         window = new JFrame("Calculator");
-        window.setSize(500, 700);
+        window.setSize(400, 500);
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        panel.setVisible(true);
-        window.getContentPane().add(panel);
+        //panel.setBackground(Color.PINK);
+        //panel.setVisible(true);
+        window.add(panel);
         window.setPreferredSize(new Dimension(500, 700));
         window.setLocationRelativeTo(null);
     }
@@ -95,6 +96,7 @@ public class SimpleCalc {
     public void constructFieldResult(){
         textAreaResult = new JTextField();
         textAreaResult.setBounds(50, 290, 190, 50);
+        textAreaResult.setEditable(false);
         panel.add(textAreaResult);
     }
 
