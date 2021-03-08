@@ -1,4 +1,4 @@
-package com.company;
+package com.company.MySimpleCalc;
 
 public class CalcAPI {
     public static double calc(double num1, double num2, char operation) {
