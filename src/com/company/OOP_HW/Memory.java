@@ -5,8 +5,8 @@ public class Memory {
     String[] memoryCell;
     int lastIndex = memoryCell.length - 1;
 
-    public Memory(int length){
-        memoryCell = new String[length];
+    public Memory(){
+        memoryCell = null;
     }
 
     String readLast(String[] memoryCell) {

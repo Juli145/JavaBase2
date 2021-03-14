@@ -6,8 +6,7 @@ public class ProcessorX86 extends Processor{
 
     @Override
     public String dataProcess(String data) {
-        data.toLowerCase();
-        return data;
+        return data.toLowerCase();
     }
 
     @Override

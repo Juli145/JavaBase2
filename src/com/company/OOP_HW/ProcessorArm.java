@@ -1,13 +1,14 @@
 package com.company.OOP_HW;
 
+import java.util.Locale;
+
 public class ProcessorArm extends Processor{
 
     final String ARCHITECTURE = "ARM";
 
     @Override
     public String dataProcess(String data) {
-        data.toUpperCase();
-        return data;
+        return data.toUpperCase(Locale.ROOT);
     }
 
     @Override
