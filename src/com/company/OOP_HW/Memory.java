@@ -1,61 +1,103 @@
 package com.company.OOP_HW;
 
+import static com.company.OOP_HW.Constant.NO_SUCH_ELEMENTS;
+import static com.company.OOP_HW.Constant.NULL_MEMORY_EXCEPTION;
+
 public class Memory {
+    private String[] memoryCell;
+    private final MemoryInfo MEMORY_INFO;
+    private int size = 0;
 
-    String[] memoryCell;
-    int lastIndex = memoryCell.length - 1;
-
-    public Memory(){
-        memoryCell = null;
+    public String[] getMemoryCell() {
+        return memoryCell;
+    }
+    public void setMemoryCell(String[] memoryCell) {
+        this.memoryCell = memoryCell;
     }
 
-    String readLast(String[] memoryCell) {
-        int i;
-        for (i = memoryCell.length - 1; i >= 0; i--) {
+
+    public void clearMemoryCell() {
+        this.memoryCell = new String[this.memoryCell.length];
+        this.size = 0;
+        MEMORY_INFO.setOccupiedMemory(0);
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public Memory(String[] memoryCell) {
+        if (memoryCell == null) {
+            throw new IllegalArgumentException(NULL_MEMORY_EXCEPTION);
+        }
+        this.memoryCell = memoryCell;
+        this.MEMORY_INFO = new MemoryInfo(memoryCell.length, 0);
+    }
+
+
+    public String readLast() {
+        for (int i = memoryCell.length - 1; i >= 0; i--) {
             if (memoryCell[i] != null) {
-                break;
+                return memoryCell[i];
             }
-        } return memoryCell[i];
+        }
+        return NO_SUCH_ELEMENTS;
     }
 
-    String removeLast(String[] memoryCell){
-        return memoryCell[lastIndex] = "null";
+    public String removeLast() {
+        for (int i = memoryCell.length - 1; i >= 0; i--) {
+            if (memoryCell[i] != null) {
+                String removingValue = memoryCell[i];
+                memoryCell[i] = null;
+                size--;
+                MEMORY_INFO.setOccupiedMemory(100 * size / MEMORY_INFO.getTotalMemory());
+                return removingValue;
+            }
+        }
+        return NO_SUCH_ELEMENTS;
     }
 
-    boolean save(String string){
+    public boolean save(String value) {
         for (int i = memoryCell.length - 1; i >= 0; i--) {
             if (memoryCell[i] == null) {
-                memoryCell[i] = string;
+                memoryCell[i] = value;
+                size++;
+                MEMORY_INFO.setOccupiedMemory(100 * size / MEMORY_INFO.getTotalMemory());
                 return true;
             }
-        } return  false;
+        }
+        return false;
     }
 
-    //getMemoryInfo() – возвращает объект, состоящий из двух полей:
-    // общий объём памяти (количество доступных ячеек), занятый объём памяти (в процентах).
+
     class MemoryInfo{
 
-        MemoryInfo(){
-            int totalMemory = memoryCell.length;
-            counterFields();
+        private final int totalMemory;
+        private double occupiedMemory;
+
+        public MemoryInfo(int totalMemory, double occupiedMemory) {
+            this.totalMemory = totalMemory;
+            this.occupiedMemory = occupiedMemory;
         }
 
-        int counterFields() {
-            int occupiedMemory;
-            int elementCounter = 0;
-            for (int i = 0; i <= memoryCell.length - 1; i++) {
-                if (memoryCell[i] != null) {
-                    elementCounter++;
-                }
-            }
-           return occupiedMemory = (elementCounter / memoryCell.length) * 100;
+        public void setOccupiedMemory(double occupiedMemory) {
+            this.occupiedMemory = occupiedMemory;
+        }
+
+        public int getTotalMemory() {
+            return totalMemory;
+        }
+
+        @Override
+        public String toString() {
+            return "MemoryInfo{" +
+                    "totalMemory=" + totalMemory +
+                    ", occupiedMemory=" + occupiedMemory +
+                    '}';
         }
     }
 
-    MemoryInfo getMemoryInfo(){
-        MemoryInfo memoryInfo = new MemoryInfo();
-        return  memoryInfo;
+    public MemoryInfo getMemoryInfo() {
+        return this.MEMORY_INFO;
     }
-
-
 }

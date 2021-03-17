@@ -1,18 +1,33 @@
 package com.company.OOP_HW;
 
-import java.util.Locale;
+
+import static com.company.OOP_HW.Constant.PROCESSOR_USING;
 
 public class ProcessorArm extends Processor{
 
-    final String ARCHITECTURE = "ARM";
+    private final String ARCHITECTURE = "ARM";
+
+    public ProcessorArm(double frequency, double cache, int bitCapacity) {
+        super(frequency, cache, bitCapacity);
+    }
 
     @Override
     public String dataProcess(String data) {
-        return data.toUpperCase(Locale.ROOT);
+        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toUpperCase();
     }
 
     @Override
     public String dataProcess(long data) {
-        return String.valueOf(Math.abs(data));
+        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toLowerCase();
+    }
+
+    @Override
+    public String getDetails() {
+        String result = super.getDetails();
+        return result + ", architecture: " + ARCHITECTURE;
+    }
+
+    public String getArchitecture() {
+        return ARCHITECTURE;
     }
 }

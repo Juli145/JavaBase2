@@ -1,40 +1,60 @@
 package com.company.OOP_HW;
 
 public class Device {
-    Processor processor;
-    Memory memory;
+    private Processor processor;
+    private Memory memory;
+
+    public Processor getProcessor() {
+        return processor;
+    }
+    public Memory getMemory() {
+        return memory;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "processor=" + processor.getDetails() +
+                ", memory=" + memory.getMemoryInfo() +
+                '}';
+    }
 
     public Device(Processor processor, Memory memory){
         this.processor = processor;
         this.memory = memory;
     }
 
-    //  void save (String[] data) – сохранение в память всех элементов в массиве
-    void save (String[] data){
-        if (data.length < memory.memoryCell.length){
+    public void save (String[] data){
+        String[] currentMemoryCell = this.memory.getMemoryCell();
+        if (data.length < currentMemoryCell.length){
             throw new IllegalArgumentException("We are out of bounds");
         }
-        for (int i = 0; i <= data.length; i++) {
-            memory.memoryCell[i] = data[i];
+        for (int i = 0; i < data.length && i < currentMemoryCell.length; i++) {
+           this.memory.save(data[i]);
         }
     }
 
-   public String[] readAll() { // вычитка всех элементов из памяти, затем стирание данных
-       String [] temp = new String[memory.memoryCell.length];
-       for (int i = 0; i <= memory.memoryCell.length - 1; i++) {
-           temp[i] = memory.memoryCell[i];
-           memory.memoryCell [i] = null;
-       } return temp;
+   public String[] readAll() {
+       String[] temp = new String[this.memory.getMemoryCell().length];
+       String[] currentMemoryCell = this.memory.getMemoryCell();
+       for (int i = 0; i <= currentMemoryCell.length - 1; i++) {
+           temp[i] = currentMemoryCell[i];
+
+       } this.memory.clearMemoryCell();
+       return temp;
    }
 
-    public void dataProcessing() { // преобразование всех данных, записанных в памяти
-        String [] ret = new String[memory.memoryCell.length];
-        for (int i = 0; i <= memory.memoryCell.length - 1; i++) {
-            ret[i] = memory.memoryCell[i].toUpperCase();
-        } memory.memoryCell = ret;
+    public void dataProcessing() {
+        String[] currentMemoryCell = this.memory.getMemoryCell();
+        for (int i = 0; i <= currentMemoryCell.length - 1; i++) {
+            if (currentMemoryCell[i] != null) {
+                currentMemoryCell[i] = currentMemoryCell[i].concat("__TTTTT");
+            }
+        } this.memory.setMemoryCell(currentMemoryCell);
     }
 
-    String getSystemInfo() { // получение строки с информацией о системе (информация о процессоре, памяти)
-        return "Processor: " + processor.getDetails() + "; " + "memory: " + memory.getMemoryInfo() + " %";
+
+    String getSystemInfo() {
+        return String.format("%s %s", this.memory.getMemoryInfo(), this.processor.getDetails());
     }
 }
