@@ -54,7 +54,7 @@ public class Device {
     }
 
     int getTotalMemory() { return this.memory.getMemoryInfo().getTotalMemory(); }
-    double getOccupiedMemory() { return this.memory.getMemoryInfo().get; }
+    double getOccupiedMemory() { return this.memory.getMemoryInfo().getOccupiedMemory(); }
     String getSystemInfo() {
         return String.format("%s %s", this.memory.getMemoryInfo(), this.processor.getDetails());
     }

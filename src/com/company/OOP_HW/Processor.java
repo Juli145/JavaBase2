@@ -29,5 +29,6 @@ public abstract class Processor {
     public double getBitCapacity() {
         return bitCapacity;
     }
+
     public abstract String getArchitecture();
 }

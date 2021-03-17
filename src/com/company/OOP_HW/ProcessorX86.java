@@ -22,7 +22,7 @@ public class ProcessorX86 extends Processor{
 
     @Override
     public String dataProcess(long data) {
-        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toUpperCase();
+        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toLowerCase();
     }
 
     @Override

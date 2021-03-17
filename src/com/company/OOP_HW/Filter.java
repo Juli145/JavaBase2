@@ -43,20 +43,40 @@ public class Filter {
         return res;
     }
 
-    public static List<Device> filtrateByTotalMemory(Device[] devices, int totalMemory) {
+    public static List<Device> filter_TotalMemory_MoreThan_Value(Device[] devices, int value) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
-            if (devices[i].getTotalMemory() == totalMemory) {
+            if (devices[i].getTotalMemory() > value) {
                 res.add(devices[i]);
             }
         }
         return res;
     }
 
-    public static List<Device> filtrateByOccupiedMemory(Device[] devices, int occupiedMemory) {
+    public static List<Device> filter_TotalMemory_LessThan_Value(Device[] devices, int value) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
-            if (devices[i].getOccupiedMemory() == occupiedMemory) {
+            if (devices[i].getTotalMemory() < value) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
+    public static List<Device> filter_OccupiedMemory_MoreThan_Value(Device[] devices, double value) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getOccupiedMemory() > value) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
+    public static List<Device> filter_OccupiedMemory_LessThan_Value(Device[] devices, double value) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getOccupiedMemory() < value) {
                 res.add(devices[i]);
             }
         }

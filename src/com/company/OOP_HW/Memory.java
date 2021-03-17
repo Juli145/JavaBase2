@@ -87,6 +87,9 @@ public class Memory {
         public int getTotalMemory() {
             return totalMemory;
         }
+        public double getOccupiedMemory() {
+            return occupiedMemory;
+        }
 
         @Override
         public String toString() {

@@ -18,7 +18,7 @@ public class ProcessorArm extends Processor{
 
     @Override
     public String dataProcess(long data) {
-        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toLowerCase();
+        return String.format(PROCESSOR_USING, ARCHITECTURE, data).toUpperCase();
     }
 
     @Override
