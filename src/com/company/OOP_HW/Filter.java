@@ -14,7 +14,7 @@ public class Filter {
         return res;
     }
 
-    public static List<Device> filtrateByCash(Device[] devices, double cash) { // 3 or 8
+    public static List<Device> filtrateByCash(Device[] devices, double cash) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
             if (devices[i].getProcessor().getCache() == cash) {
@@ -23,4 +23,44 @@ public class Filter {
         }
         return res;
     }
+    public static List<Device> filtrateByFrequency(Device[] devices, double frequency) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getProcessor().getFrequency() == frequency) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
+    public static List<Device> filtrateByBitCapacity(Device[] devices, double bitCapacity) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getProcessor().getBitCapacity() == bitCapacity) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
+    public static List<Device> filtrateByTotalMemory(Device[] devices, int totalMemory) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getTotalMemory() == totalMemory) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
+    public static List<Device> filtrateByOccupiedMemory(Device[] devices, int occupiedMemory) {
+        List<Device> res = new ArrayList<>();
+        for (int i = 0; i < devices.length; i++) {
+            if (devices[i].getOccupiedMemory() == occupiedMemory) {
+                res.add(devices[i]);
+            }
+        }
+        return res;
+    }
+
 }

@@ -23,5 +23,11 @@ public abstract class Processor {
     public double getCache() {
         return cache;
     }
+    public double getFrequency() {
+        return frequency;
+    }
+    public double getBitCapacity() {
+        return bitCapacity;
+    }
     public abstract String getArchitecture();
 }

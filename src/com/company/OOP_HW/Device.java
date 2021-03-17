@@ -53,7 +53,8 @@ public class Device {
         } this.memory.setMemoryCell(currentMemoryCell);
     }
 
-
+    int getTotalMemory() { return this.memory.getMemoryInfo().getTotalMemory(); }
+    double getOccupiedMemory() { return this.memory.getMemoryInfo().get; }
     String getSystemInfo() {
         return String.format("%s %s", this.memory.getMemoryInfo(), this.processor.getDetails());
     }
