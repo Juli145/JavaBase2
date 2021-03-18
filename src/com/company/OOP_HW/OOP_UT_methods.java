@@ -3,10 +3,8 @@ package com.company.OOP_HW;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
-public class OOP_UT {
+public class OOP_UT_methods {
     @Test
     public void test_getDetails_ProcessorX86(){
         ProcessorX86 processorX86 = new ProcessorX86(3.7,8,64);
@@ -89,17 +87,40 @@ public class OOP_UT {
         Assertions.assertEquals(actual, expected);
     }
 
-//    @Test
-//    public void test_save_true_Device() {
-//        Device device = new Device(new ProcessorArm(2.84,3,32), new Memory(new String[2]));
-//        String[] nemory = new String[]{"qwe", null};
-//        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outputStreamCaptor));
-//        // Device.save(nemory);
-//        device.save(nemory);
-//        String expected = " ";
-//        String actual = outputStreamCaptor.toString();
-//        Assertions.assertEquals(expected, actual);
-//        Assertions.assertArrayEquals(nemory, device.getMemory().getMemoryCell());
-//    }
+    @Test
+    public void test_save_Device() {
+        Device device = new Device(new ProcessorArm(2.84,3,32), new Memory(new String[5]));
+        device.save(new String[]{"qwe", "rty", "asd"});
+        String [] memoryCell = new String[]{null, null, "asd", "rty","qwe"};
+        Assertions.assertArrayEquals(memoryCell, device.getMemory().getMemoryCell());
+    }
+
+    @Test
+    public void test_readAll_Device() {
+        Device device = new Device(new ProcessorArm(2.84,3,32), new Memory(new String[5]));
+        device.save(new String[]{"qwe", "rty", "asd"});
+        String [] memoryCell = new String[]{null, null, "asd", "rty","qwe"};
+        String[] expected = memoryCell;
+        String[] actual = device.readAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test_dataProcessing_Device() {
+        Device device = new Device(new ProcessorArm(2.84,3,32), new Memory(new String[3]));
+        device.save(new String[]{"qwe", "rty", "asd"});
+        device.dataProcessing();
+        String [] memoryCell = new String[]{"asd__TTTTT", "rty__TTTTT", "qwe__TTTTT"};
+        Assertions.assertArrayEquals(memoryCell, device.getMemory().getMemoryCell());
+    }
+
+    @Test
+    public void test_getSystemInfo_Device() {
+        Device device = new Device(new ProcessorArm(2.84,3,32), new Memory(new String[3]));
+        device.getSystemInfo();
+        String  expected = "MemoryInfo{totalMemory=3, occupiedMemory=0.0} Частота процессора: 2.84 GHz, кеш: 3.0 Mb, разрядность: 32-bit, architecture: ARM";
+        String actual = device.getSystemInfo();
+        Assertions.assertEquals(actual, expected);
+    }
+
 }

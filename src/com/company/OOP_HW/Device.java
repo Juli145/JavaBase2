@@ -26,9 +26,9 @@ public class Device {
 
     public void save (String[] data){
         String[] currentMemoryCell = this.memory.getMemoryCell();
-        if (data.length < currentMemoryCell.length){
-            throw new IllegalArgumentException("We are out of bounds");
-        }
+//        if (data.length < currentMemoryCell.length){
+//            throw new IllegalArgumentException("We are out of bounds");
+//        }
         for (int i = 0; i < data.length && i < currentMemoryCell.length; i++) {
            this.memory.save(data[i]);
         }
@@ -53,9 +53,10 @@ public class Device {
         } this.memory.setMemoryCell(currentMemoryCell);
     }
 
-    int getTotalMemory() { return this.memory.getMemoryInfo().getTotalMemory(); }
-    double getOccupiedMemory() { return this.memory.getMemoryInfo().getOccupiedMemory(); }
     String getSystemInfo() {
         return String.format("%s %s", this.memory.getMemoryInfo(), this.processor.getDetails());
     }
+
+    int getTotalMemory() { return this.memory.getMemoryInfo().getTotalMemory(); }
+    double getOccupiedMemory() { return this.memory.getMemoryInfo().getOccupiedMemory(); }
 }
