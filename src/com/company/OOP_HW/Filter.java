@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Filter {
-    public static List<Device> filtrateByArchitecture(Device[] devices, String arch) {
+    public static List<Device> filterByArchitecture(Device[] devices, String arch) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
             if (devices[i].getProcessor().getArchitecture().equals(arch)) {
@@ -14,7 +14,7 @@ public class Filter {
         return res;
     }
 
-    public static List<Device> filtrateByCash(Device[] devices, double cash) {
+    public static List<Device> filterByCash(Device[] devices, double cash) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
             if (devices[i].getProcessor().getCache() == cash) {
@@ -23,7 +23,7 @@ public class Filter {
         }
         return res;
     }
-    public static List<Device> filtrateByFrequency(Device[] devices, double frequency) {
+    public static List<Device> filterByFrequency(Device[] devices, double frequency) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
             if (devices[i].getProcessor().getFrequency() == frequency) {
@@ -33,7 +33,7 @@ public class Filter {
         return res;
     }
 
-    public static List<Device> filtrateByBitCapacity(Device[] devices, double bitCapacity) {
+    public static List<Device> filterByBitCapacity(Device[] devices, double bitCapacity) {
         List<Device> res = new ArrayList<>();
         for (int i = 0; i < devices.length; i++) {
             if (devices[i].getProcessor().getBitCapacity() == bitCapacity) {

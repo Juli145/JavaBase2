@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class OOP_UT_methods {
+public class UT_methods {
     @Test
     public void test_getDetails_ProcessorX86(){
         ProcessorX86 processorX86 = new ProcessorX86(3.7,8,64);
