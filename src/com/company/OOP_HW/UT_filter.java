@@ -103,4 +103,30 @@ public class UT_filter {
         Assertions.assertEquals(expected, actual);
     }
 
+//    @Test
+//    public void test_filter_OccupiedMemory_MoreThan_Value(){
+//        List<Device> expected = new ArrayList<>();
+//        expected.add(samsungS20);
+//        expected.add(samsungA8);
+//        expected.add(iphone10);
+//        expected.add(samsungS10);
+//        expected.add(samsungA7);
+//        expected.add(iphone11);
+//        List<Device> actual = Filter.filter_OccupiedMemory_MoreThan_Value(devices, 1);
+//        Assertions.assertEquals(expected, actual);
+//    }
+
+//    @Test
+//    public void test_filter_OccupiedMemory_LessThan_Value(){
+//        List<Device> expected = new ArrayList<>();
+//        expected.add(samsungS20);
+//        expected.add(samsungA8);
+//        expected.add(iphone10);
+//        expected.add(samsungS10);
+//        expected.add(samsungA7);
+//        expected.add(iphone11);
+//        List<Device> actual = Filter.filter_OccupiedMemory_LessThan_Value(devices, 0);
+//        Assertions.assertEquals(expected, actual);
+//    }
+
 }
