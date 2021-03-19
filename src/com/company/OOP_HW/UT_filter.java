@@ -59,14 +59,15 @@ public class UT_filter {
         Assertions.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void test_filterByFrequency(){
-//        List<Device> expected = new ArrayList<>();
-//        expected.add(iphone10);
-//        expected.add(samsungA7);
-//        List<Device> actual = Filter.filterByFrequency(devices, 3.7);
-//       Assertions.assertEquals(actual, expected);
-//    }
+    @Test
+    public void test_filterByFrequency() {
+        List<Device> expected = new ArrayList<>();
+        expected.add(myComputer1);
+        expected.add(myComputer3);
+        List<Device> actual = Filter.filterByFrequency(devices, 3.7);
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void test_filterByBitCapacity(){
@@ -100,6 +101,20 @@ public class UT_filter {
         expected.add(samsungA7);
         expected.add(iphone11);
         List<Device> actual = Filter.filter_TotalMemory_LessThan_Value(devices, 7);
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void test_filter_ByMoreOccupiedMemory() {
+        List<Device> expected = new ArrayList<>();
+        String [] a = {"Test", "Robot"};
+        myComputer1.save(a);
+        String [] b = {"Test", "Robot", "Cash"};
+        myComputer3.save(b);
+        expected.add(myComputer1);
+        expected.add(myComputer3);
+        List<Device> actual = Filter.filter_OccupiedMemory_MoreThan_Value(devices, 20.1);
         Assertions.assertEquals(expected, actual);
     }
 

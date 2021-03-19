@@ -26,9 +26,9 @@ public class Device {
 
     public void save (String[] data){
         String[] currentMemoryCell = this.memory.getMemoryCell();
-//        if (data.length < currentMemoryCell.length){
-//            throw new IllegalArgumentException("We are out of bounds");
-//        }
+        if (data.length > currentMemoryCell.length){
+            throw new IllegalArgumentException("We are out of bounds");
+        }
         for (int i = 0; i < data.length && i < currentMemoryCell.length; i++) {
            this.memory.save(data[i]);
         }
