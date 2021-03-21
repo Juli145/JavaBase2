@@ -29,12 +29,12 @@ public class StringHW {
         return new String(alphabet);
     }
 
-    public static char[] string_0_9 (){
+    public static String string_0_9 (){
         char[] numbers = new char[10];
         for (int i = 0; i <= 9; i++) {
             numbers[i] = (char) (48 + i);
         }
-        return numbers;
+        return new String(numbers);
     }
 
 

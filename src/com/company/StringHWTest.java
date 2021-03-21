@@ -28,9 +28,9 @@ public class StringHWTest {
 
     @Test
     public void test_string_0_9(){
-        char [] actual = StringHW.string_0_9();
-        char [] expected = {'0','1','2','3','4','5','6','7','8','9'};
-        Assertions.assertArrayEquals(actual, expected);
+        String actual = StringHW.string_0_9();
+        String expected = "0123456789";
+        Assertions.assertEquals(actual, expected);
     }
 
 
