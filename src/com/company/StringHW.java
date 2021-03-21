@@ -5,28 +5,28 @@ import java.util.regex.Pattern;
 
 public class StringHW {
 
-    public static char[] string_A_Z (){
+    public static String string_A_Z (){
         char [] alphabet = new char[26];
         for (int i = 0; i < 26; i++) {
             alphabet[i] = (char) (65 + i);
         }
-        return alphabet;
+        return new String(alphabet);
     }
 
-    public static char[] string_z_a (){
+    public static String string_z_a (){
         char [] alphabet = new char[26];
         for (int i = 25; i >= 0; i--) {
             alphabet[i] = (char) (122 - i);
         }
-        return alphabet;
+        return new String(alphabet);
     }
 
-    public static char[] string_а_я () {
+    public static String string_а_я () {
         char[] alphabet = new char[32];
         for (int i = 0; i < 32; i++) {
             alphabet[i] = (char) (1072 + i);
         }
-        return alphabet;
+        return new String(alphabet);
     }
 
     public static char[] string_0_9 (){
@@ -37,7 +37,8 @@ public class StringHW {
         return numbers;
     }
 
-    public static char[] string_printable_char (){
+
+    public static char[] string_printable_char () {
         char[] chars = new char[95];
         for (int i = 0; i <= 94; i++) {
             chars[i] = (char) (32 + i);
@@ -46,23 +47,19 @@ public class StringHW {
     }
 
     public static String integer_to_String(int x){
-        String num = String.valueOf(x);
-        return num;
+        return String.valueOf(x);
     }
 
     public static String double_to_String(double x){
-        String num = String.valueOf(x);
-        return num;
+        return  String.valueOf(x);
     }
 
     public static int string_to_Integer(String str){
-        Integer i = Integer.parseInt(str);
-        return i;
+        return Integer.parseInt(str);
     }
 
     public static double string_to_Double(String str){
-        Double d = Double.valueOf(str);
-        return d;
+        return  Double.valueOf(str);
     }
 
     public static int shortestWord (String str) {

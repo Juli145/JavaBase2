@@ -4,25 +4,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class StringHWTest {
+
     @Test
     public void test_string_A_Z(){
-        char [] actual = StringHW.string_A_Z();
-        char [] expected = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-        Assertions.assertArrayEquals(actual, expected);
+        String actual = StringHW.string_A_Z();
+        String expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void test_string_z_a(){
-        char [] actual = StringHW.string_z_a();
-        char [] expected = {'z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'};
-        Assertions.assertArrayEquals(actual, expected);
+        String actual = StringHW.string_z_a();
+        String expected = "zyxwvutsrqponmlkjihgfedcba";
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void test_string_а_я(){
-        char [] actual = StringHW.string_а_я();
-        char [] expected = {'а','б','в','г','д','е','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
-        Assertions.assertArrayEquals(actual, expected);
+        String actual = StringHW.string_а_я();
+        String expected = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
+        Assertions.assertEquals(actual, expected);
     }
 
     @Test
@@ -32,12 +33,6 @@ public class StringHWTest {
         Assertions.assertArrayEquals(actual, expected);
     }
 
-    //@Test
-//    public void symbolsASCII() {
-//        char[] actual = First.symbolsASCII();
-//        char[] expected = new char[]{' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '/', ']', '^','_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~',' '};
-//                Assertions.assertArrayEquals(actual, expected);
-//}
 
     @Test
     public void test_integer_to_String(){
