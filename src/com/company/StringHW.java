@@ -38,12 +38,12 @@ public class StringHW {
     }
 
 
-    public static char[] string_printable_char () {
+    public static String string_printable_char () {
         char[] chars = new char[95];
         for (int i = 0; i <= 94; i++) {
             chars[i] = (char) (32 + i);
         }
-        return chars;
+        return new String(chars);
     }
 
     public static String integer_to_String(int x){
